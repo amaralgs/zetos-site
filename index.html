@@ -27,6 +27,7 @@
   <nav aria-label="Main">
     <a class="hide-sm" href="#features">Features</a>
     <a class="hide-sm" href="#watch">Apple Watch</a>
+    <a class="hide-sm" href="#privacy">Privacy</a>
     <a href="#get">Get the app</a>
     <a class="lang" href="pt/" hreflang="pt-BR" lang="pt-BR">PT</a>
   </nav>
@@ -36,19 +37,18 @@
 <section class="scene" id="scene" aria-label="From the exercise to your wrist">
   <div class="sticky">
     <h1 class="lines"><span class="a">Your workout.</span><span class="b">With the right <em>form.</em></span></h1>
-    <p class="ex-tag"><strong>Dumbbell goblet squat</strong><span>Three angles of every movement</span></p>
-    <div class="stage" role="img" aria-label="Three angles of every movement: Front, Side, Top">
-      <div class="views">
-        <figure class="view v1"><div class="vframe"><video src="assets/view-front.mp4" poster="assets/view-front.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Front</figcaption></figure>
-        <figure class="view v2"><div class="vframe"><video src="assets/view-side.mp4" poster="assets/view-side.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Side</figcaption></figure>
-        <figure class="view v3"><div class="vframe"><video src="assets/view-top.mp4" poster="assets/view-top.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Top</figcaption></figure>
+    <p class="ex-tag"><span class="kicker">Real example from the app:</span><strong>Dumbbell goblet squat</strong><span class="sub">Three angles of every movement</span></p>
+    <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Three angles of every movement">
+      <div class="track">
+        <figure class="card3"><div class="vframe"><video src="assets/view-front.mp4" poster="assets/view-front.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Front</figcaption></figure>
+        <figure class="card3"><div class="vframe"><video src="assets/view-side.mp4" poster="assets/view-side.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Side</figcaption></figure>
+        <figure class="card3"><div class="vframe"><video src="assets/view-top.mp4" poster="assets/view-top.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Top</figcaption></figure>
       </div>
-      <div class="watch"><div class="wscreen">
-        <b>Zetos</b>
-        <span class="ring" aria-hidden="true"></span>
-        <em>Rest · 75 s</em>
-        <small>Next set soon</small>
-      </div></div>
+      <button class="nav prev" type="button" aria-label="Previous view">&#8249;</button>
+      <button class="nav next" type="button" aria-label="Next view">&#8250;</button>
+    </div>
+    <div class="dots" role="group" aria-label="Three angles of every movement">
+      <button type="button">Front</button><button type="button">Side</button><button type="button">Top</button>
     </div>
     <div class="scroll-hint" aria-hidden="true">Scroll</div>
   </div>
@@ -105,6 +105,22 @@
   </div>
 </section>
 
+<section class="block alt" id="privacy">
+  <div class="wrap">
+    <p class="eyebrow">Privacy</p>
+    <h2>We store none of your information.</h2>
+    <p class="lead">The developer of Zetos does not store absolutely any user information: no account, no sign-up, no data server, no ads, no tracking. Your profile, history and recordings stay only on your device.</p>
+    <div class="pgrid">
+      <div class="card"><h3>No account</h3><p>Nothing to create, nothing to sign in to.</p></div>
+      <div class="card"><h3>Everything on your device</h3><p>Profile, workouts and videos never leave it.</p></div>
+      <div class="card"><h3>No ads, no tracking</h3><p>No analytics, no ad networks.</p></div>
+      <div class="card"><h3>You are in control</h3><p>Delete a recording or uninstall the app and everything is gone.</p></div>
+    </div>
+    <p class="priv-note">Optional coach chat: if you choose to send a question, its text is forwarded to an AI provider to produce the answer. The developer does not store it, and your profile, Health data and videos are never included.</p>
+    <p><a class="btn ghost" href="privacy.html">Read the full privacy policy</a></p>
+  </div>
+</section>
+
 <section class="block cta" id="get">
   <div class="wrap">
     <p class="eyebrow">Get Zetos</p>
@@ -128,5 +144,6 @@
 </div></footer>
 
 <script src="assets/scene.js" defer></script>
+<script src="assets/carousel.js" defer></script>
 </body>
 </html>

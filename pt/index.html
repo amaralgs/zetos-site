@@ -27,6 +27,7 @@
   <nav aria-label="Principal">
     <a class="hide-sm" href="#features">Recursos</a>
     <a class="hide-sm" href="#watch">Apple Watch</a>
+    <a class="hide-sm" href="#privacy">Privacidade</a>
     <a href="#get">Baixar o app</a>
     <a class="lang" href="../" hreflang="en" lang="en">EN</a>
   </nav>
@@ -36,19 +37,18 @@
 <section class="scene" id="scene" aria-label="Do exercício ao seu pulso">
   <div class="sticky">
     <h1 class="lines"><span class="a">Seu treino.</span><span class="b">Com a <em>forma certa.</em></span></h1>
-    <p class="ex-tag"><strong>Agachamento goblet com halter</strong><span>Três ângulos de cada movimento</span></p>
-    <div class="stage" role="img" aria-label="Três ângulos de cada movimento: Frente, Lado, Alto">
-      <div class="views">
-        <figure class="view v1"><div class="vframe"><video src="../assets/view-front.mp4" poster="../assets/view-front.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Frente</figcaption></figure>
-        <figure class="view v2"><div class="vframe"><video src="../assets/view-side.mp4" poster="../assets/view-side.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Lado</figcaption></figure>
-        <figure class="view v3"><div class="vframe"><video src="../assets/view-top.mp4" poster="../assets/view-top.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Alto</figcaption></figure>
+    <p class="ex-tag"><span class="kicker">Exemplo real do aplicativo:</span><strong>Agachamento goblet com halter</strong><span class="sub">Três ângulos de cada movimento</span></p>
+    <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Três ângulos de cada movimento">
+      <div class="track">
+        <figure class="card3"><div class="vframe"><video src="../assets/view-front.mp4" poster="../assets/view-front.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Frente</figcaption></figure>
+        <figure class="card3"><div class="vframe"><video src="../assets/view-side.mp4" poster="../assets/view-side.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Lado</figcaption></figure>
+        <figure class="card3"><div class="vframe"><video src="../assets/view-top.mp4" poster="../assets/view-top.png" autoplay muted loop playsinline preload="metadata"></video></div><figcaption>Alto</figcaption></figure>
       </div>
-      <div class="watch"><div class="wscreen">
-        <b>Zetos</b>
-        <span class="ring" aria-hidden="true"></span>
-        <em>Descanso · 75 s</em>
-        <small>Próxima série em breve</small>
-      </div></div>
+      <button class="nav prev" type="button" aria-label="Vista anterior">&#8249;</button>
+      <button class="nav next" type="button" aria-label="Próxima vista">&#8250;</button>
+    </div>
+    <div class="dots" role="group" aria-label="Três ângulos de cada movimento">
+      <button type="button">Frente</button><button type="button">Lado</button><button type="button">Alto</button>
     </div>
     <div class="scroll-hint" aria-hidden="true">Role</div>
   </div>
@@ -105,6 +105,22 @@
   </div>
 </section>
 
+<section class="block alt" id="privacy">
+  <div class="wrap">
+    <p class="eyebrow">Privacidade</p>
+    <h2>Não guardamos nenhuma informação sua.</h2>
+    <p class="lead">O desenvolvedor do Zetos não armazena absolutamente nenhuma informação do usuário: sem conta, sem cadastro, sem servidor de dados, sem anúncios, sem rastreamento. Seu perfil, seu histórico e suas gravações ficam apenas no seu aparelho.</p>
+    <div class="pgrid">
+      <div class="card"><h3>Sem conta</h3><p>Nada para criar, nada para entrar.</p></div>
+      <div class="card"><h3>Tudo no seu aparelho</h3><p>Perfil, treinos e vídeos nunca saem dele.</p></div>
+      <div class="card"><h3>Sem anúncios nem rastreamento</h3><p>Sem ferramentas de análise nem redes de anúncios.</p></div>
+      <div class="card"><h3>Você no controle</h3><p>Apague uma gravação ou desinstale o app e tudo desaparece.</p></div>
+    </div>
+    <p class="priv-note">Chat do coach (opcional): se você escolher enviar uma pergunta, o texto dela é encaminhado a um provedor de IA para gerar a resposta. O desenvolvedor não o armazena, e seu perfil, dados de Saúde e vídeos nunca são incluídos.</p>
+    <p><a class="btn ghost" href="privacy.html">Ler a política de privacidade completa</a></p>
+  </div>
+</section>
+
 <section class="block cta" id="get">
   <div class="wrap">
     <p class="eyebrow">Baixar o Zetos</p>
@@ -128,5 +144,6 @@
 </div></footer>
 
 <script src="../assets/scene.js" defer></script>
+<script src="../assets/carousel.js" defer></script>
 </body>
 </html>

@@ -40,17 +40,31 @@ img, video { max-width: 100%; }
 .lines .a { opacity: var(--a-o); }
 .lines .b { opacity: var(--b-o); }
 .lines .b em { font-style: normal; background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.ex-tag { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 0 0 3vh; text-align: center; position: relative; z-index: 2; }
-.ex-tag strong { font-size: clamp(16px, 2.2vw, 22px); }
-.ex-tag span { color: var(--muted); font-size: clamp(13px, 1.6vw, 16px); }
-.stage { width: min(90vw, 1080px); position: relative; flex: none; margin-bottom: 6vh; }
-.views { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 2vw, 26px); }
-.view { margin: 0; opacity: var(--c, 1); transform: translateY(calc((1 - var(--c, 1)) * 36px)); text-align: center; }
-.view.v1 { --c: var(--c1, 1); } .view.v2 { --c: var(--c2, 1); } .view.v3 { --c: var(--c3, 1); }
+.ex-tag { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 0 0 2.4vh; text-align: center; position: relative; z-index: 2; }
+.ex-tag .kicker { color: var(--accent); font-weight: 700; font-size: clamp(12px, 1.5vw, 14px); letter-spacing: .06em; text-transform: uppercase; }
+.ex-tag strong { font-size: clamp(17px, 2.4vw, 24px); line-height: 1.2; }
+.ex-tag span.sub { color: var(--muted); font-size: clamp(13px, 1.6vw, 16px); }
+
+/* carrossel circular */
+.carousel { --cw: min(54vw, 46vh * 1.5, 600px); position: relative; width: min(100vw, 1180px); height: calc(var(--cw) / 1.5 + 54px); overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.track { position: absolute; inset: 0; }
+.card3 { --off: 0; position: absolute; left: 50%; top: 0; width: var(--cw); margin: 0; text-align: center; cursor: pointer;
+  transform: translateX(-50%) translateX(calc(var(--off) * var(--cw) * .76)) scale(calc(1 - var(--off) * var(--off) * .26));
+  opacity: calc(1 - var(--off) * var(--off) * .3); z-index: calc(3 - var(--off) * var(--off));
+  transition: transform .6s cubic-bezier(.22,.8,.26,1), opacity .6s ease; }
+.card3.is-active { cursor: default; }
 .vframe { aspect-ratio: 1.5; background: #eef2ee; border: clamp(4px, .7vw, 8px) solid #0b1226; border-radius: clamp(12px, 2vw, 22px); overflow: hidden; box-shadow: 0 0 0 1px #2b3350, 0 22px 44px rgba(8, 20, 70, .28); }
-.vframe video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.view figcaption { margin-top: 12px; display: inline-block; padding: 4px 16px; border-radius: 980px; font-weight: 700; font-size: clamp(13px, 1.7vw, 17px); color: #fff; background: linear-gradient(100deg, var(--accent), var(--accent-2)); }
-.watch { position: absolute; right: -5%; bottom: -16%; width: clamp(84px, 12vw, 150px); aspect-ratio: .82; opacity: var(--watch-o); transform: translateX(var(--watch-x)); background: #05070e; border-radius: 26%; padding: 4.5%; box-shadow: 0 0 0 2px #2b3350, 0 18px 40px rgba(8, 20, 70, .4); z-index: 2; }
+.vframe video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.card3 figcaption { margin-top: 12px; display: inline-block; padding: 4px 18px; border-radius: 980px; font-weight: 700; font-size: clamp(13px, 1.7vw, 17px); color: #fff; background: linear-gradient(100deg, var(--accent), var(--accent-2)); }
+.card3:not(.is-active) figcaption { background: var(--bg-alt); color: var(--muted); }
+.nav { position: absolute; top: calc(var(--cw) / 3 - 22px); z-index: 5; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 88%, transparent); color: var(--text); font-size: 26px; line-height: 1; cursor: pointer; display: grid; place-items: center; backdrop-filter: blur(8px); }
+.nav:hover { border-color: var(--accent); color: var(--accent); }
+.nav.prev { left: max(8px, calc(50% - min(48vw, 590px))); } .nav.next { right: max(8px, calc(50% - min(48vw, 590px))); }
+.dots { display: flex; gap: 8px; margin-top: 10px; justify-content: center; position: relative; z-index: 6; }
+.dots button { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 980px; padding: 5px 16px; font: inherit; font-size: 14px; cursor: pointer; }
+.dots button[aria-current="true"] { background: linear-gradient(100deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; font-weight: 700; }
+@media (max-width: 640px) { .carousel { --cw: min(78vw, 40vh * 1.5); } .card3 { transform: translateX(-50%) translateX(calc(var(--off) * var(--cw) * .9)) scale(calc(1 - var(--off) * var(--off) * .22)); } .nav { display: none; } }
+
 .wscreen { width: 100%; height: 100%; border-radius: 22%; background: #000; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-align: center; padding: 6px; font-size: clamp(8px, 1.2vw, 13px); }
 .wscreen b { color: var(--accent-2); letter-spacing: .04em; }
 .wscreen em { font-style: normal; font-weight: 700; font-size: 1.25em; }
@@ -110,8 +124,13 @@ footer .grow { flex: 1; min-width: 200px; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-@media (max-width: 640px) {
-  .scene .sticky { min-height: 0; padding-bottom: 56px; }
-  .views { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; gap: 22px; }
-  .watch { position: static; margin: 28px auto 0; width: 150px; }
-}
+
+/* privacidade */
+.promise { border: 2px solid var(--accent); border-radius: 22px; padding: 26px 28px; margin: 0 0 28px; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--bg)), color-mix(in srgb, var(--accent-2) 8%, var(--bg))); }
+.promise strong { display: block; font-size: clamp(22px, 3.4vw, 32px); line-height: 1.2; letter-spacing: -.01em; }
+.promise p { margin: 10px 0 0; color: var(--muted); }
+.pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 0 0 22px; }
+.pgrid .card { padding: 20px; } .pgrid .card h3 { font-size: 17px; }
+.priv-note { color: var(--muted); font-size: 14.5px; max-width: 760px; }
+.scene.animated { height: 200vh; }
+.card3.is-active figcaption { visibility: hidden; }
