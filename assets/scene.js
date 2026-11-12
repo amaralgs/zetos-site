@@ -1,7 +1,7 @@
 (function () {
   var scene = document.getElementById('scene');
   if (!scene) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 640) return;
 
   scene.classList.add('animated');
 
@@ -16,12 +16,11 @@
     var total = scene.offsetHeight - window.innerHeight;
     var p = total > 0 ? clamp(-scene.getBoundingClientRect().top / total) : 1;
     var s = scene.style;
-    s.setProperty('--phone-scale', lerp(1.22, 1, ease(seg(p, 0.12, 0.72))).toFixed(4));
-    s.setProperty('--watch-o', ease(seg(p, 0.3, 0.62)).toFixed(4));
-    s.setProperty('--watch-x', (lerp(60, 0, ease(seg(p, 0.3, 0.75)))).toFixed(2) + 'px');
-    s.setProperty('--a-o', (1 - ease(seg(p, 0.18, 0.38))).toFixed(4));
+    s.setProperty('--watch-o', ease(seg(p, 0.50, 0.70)).toFixed(4));
+    s.setProperty('--watch-x', lerp(50, 0, ease(seg(p, 0.50, 0.74))).toFixed(2) + 'px');
+    s.setProperty('--a-o', (1 - ease(seg(p, 0.30, 0.46))).toFixed(4));
     s.setProperty('--hint-o', (1 - seg(p, 0, 0.06)).toFixed(4));
-    s.setProperty('--b-o', ease(seg(p, 0.42, 0.62)).toFixed(4));
+    s.setProperty('--b-o', ease(seg(p, 0.40, 0.56)).toFixed(4));
   }
 
   function onScroll() {
